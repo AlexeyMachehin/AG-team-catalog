@@ -14,6 +14,7 @@
   },
   "author": "Alexey Machehin",
   "dependencies": {
+    "@fontsource/roboto": "^5.0.5",
     "@reduxjs/toolkit": "^1.9.5",
     "@vitejs/plugin-react": "^4.0.3",
     "axios": "^1.4.0",
