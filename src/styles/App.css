@@ -23,6 +23,17 @@ h4,
 h5,
 h6 {
   font-weight: 400;
+  text-align: center;
+}
+
+h1 {
+  font-size: 64px;
+  color: #fff;
+}
+
+h2 {
+  font-size: 32px;
+  color: #fff;
 }
 
 h3 {
@@ -101,4 +112,20 @@ h3 {
   text-decoration: underline;
   text-underline-offset: 3px;
   color: #512689;
+}
+
+.generalHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 80px 64px 80px;
+  gap: 16px;
+  background-color: #512689;
+}
+
+@media screen and (max-width: 768px) {
+  .generalHeader {
+    padding: 16px 16px 64px 16px;
+  }
 }
