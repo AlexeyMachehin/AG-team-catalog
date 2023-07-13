@@ -11,7 +11,7 @@ export function UserInfo() {
         <div className={classes.headerContent}>
           <img
             className={classes.avatar}
-            src="../../../public/eyeClosed.svg"
+            src="eyeClosed.svg"
             alt="avatar"
           />
 
@@ -34,12 +34,12 @@ export function UserInfo() {
 
         <div className={classes.userInfo__contacts}>
           <div className={classes.contact}>
-            <img src="../../../public/phone.svg" alt="phone" />
+            <img src="phone.svg" alt="phone" />
             <a href="tel:+79543334455">+7 (954) 333-44-55</a>
           </div>
 
           <div className={classes.contact}>
-            <img src="../../../public/envelope.svg" alt="phone" />
+            <img src="envelope.svg" alt="phone" />
             <a
               href="mailto:sykfafkar@gmail.com"
               className={classes.userInfo__contacts__mail}>

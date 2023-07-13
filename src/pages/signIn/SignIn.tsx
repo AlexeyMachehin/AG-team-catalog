@@ -71,13 +71,13 @@ export function SignIn() {
               <img
                 className="icon"
                 alt="eyeOpened"
-                src="@/../public/eyeOpened.png"
+                src="eyeOpened.png"
               />
             ) : (
               <img
                 className="icon"
                 alt="eyeClosed"
-                src="@/../public/eyeClosed.svg"
+                src="eyeClosed.svg"
               />
             )}
           </span>
