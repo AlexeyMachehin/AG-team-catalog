@@ -30,7 +30,7 @@ export function UserCards() {
       <footer className={classes.footer}>
         <button className={classes.showMoreButton}>
           Показать еще
-          <img src="public/arrowDown.svg" alt="arrowDown" />
+          <img src="arrowDown.svg" alt="arrowDown" />
         </button>
       </footer>
     </div>
