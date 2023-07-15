@@ -1,3 +1,4 @@
+import { authService } from '@/services/AuthService';
 import { userService } from '@/services/userService';
 import { IUser } from '@/types/user';
 import { createAsyncThunk } from '@reduxjs/toolkit';
@@ -14,7 +15,7 @@ export const getUsers = createAsyncThunk<IUser[], void, RejectWithValue>(
       console.log(error);
       return rejectWithValue((error as Error).message);
     }
-  }
+  },
 );
 
 export const getUser = createAsyncThunk<IUser, string, RejectWithValue>(
@@ -26,5 +27,17 @@ export const getUser = createAsyncThunk<IUser, string, RejectWithValue>(
       console.log(error);
       return rejectWithValue((error as Error).message);
     }
-  }
+  },
+);
+
+export const signup = createAsyncThunk(
+  'users/signup',
+  async (userData, { rejectWithValue }) => {
+    try {
+      return await authService.signup(userData);
+    } catch (error) {
+      console.log(error);
+      return rejectWithValue((error as Error).message);
+    }
+  },
 );

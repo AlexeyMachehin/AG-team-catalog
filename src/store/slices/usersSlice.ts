@@ -1,9 +1,9 @@
 import { IUser } from '@/types/user';
 import { createSlice } from '@reduxjs/toolkit';
-import { getUser, getUsers } from '../thunk/usersThunk';
+import { getUser, getUsers, signup } from '../thunk/usersThunk';
 
 interface IUsersState {
-  loggedUser: IUser | null;
+  isLogged: boolean;
   allUsers: IUser[] | null;
   currentUser: IUser | null;
   isLoaderOn: boolean;
@@ -12,7 +12,7 @@ interface IUsersState {
 }
 
 const initialState: IUsersState = {
-  loggedUser: null,
+  isLogged: false,
   allUsers: null,
   currentUser: null,
   isLoaderOn: false,
@@ -32,6 +32,9 @@ const usersSlice = createSlice({
     },
     setIsRedirected(state, action) {
       state.isRedirected = action.payload;
+    },
+    setIsLogged(state, action) {
+      state.isLogged = action.payload;
     },
   },
   extraReducers: builder => {
@@ -60,10 +63,24 @@ const usersSlice = createSlice({
         state.isRedirected = true;
         state.isLoaderOn = false;
         state.error = action.payload;
+      })
+
+      .addCase(signup.fulfilled, state => {
+        state.isLogged = true;
+        state.isLoaderOn = false;
+      })
+      .addCase(signup.pending, state => {
+        state.isLoaderOn = true;
+        state.error = null;
+      })
+      .addCase(signup.rejected, (state, action) => {
+        state.isLogged = false;
+        state.isLoaderOn = false;
+        state.error = action.payload;
       });
   },
 });
 
-export const { removeError, setError, setIsRedirected } = usersSlice.actions;
+export const { removeError, setError, setIsRedirected, setIsLogged } = usersSlice.actions;
 
 export default usersSlice.reducer;

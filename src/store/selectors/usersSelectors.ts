@@ -27,3 +27,8 @@ export const selectorIsRedirected = createSelector(
   [select],
   state => state.usersReducer.isRedirected,
 );
+
+export const selectorIsLogged = createSelector(
+  [select],
+  state => state.usersReducer.isLogged,
+);

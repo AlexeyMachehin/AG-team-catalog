@@ -10,10 +10,13 @@
   width: 100%;
 }
 
+body {
+  min-width: 375px;
+}
+
 .App {
   height: 100%;
   width: 100%;
-  min-width: 375px;
 }
 
 h1,
@@ -23,7 +26,6 @@ h4,
 h5,
 h6 {
   font-weight: 400;
-  text-align: center;
 }
 
 h1 {
