@@ -2,16 +2,16 @@ import { IUser } from '@/types/user';
 import { createSlice } from '@reduxjs/toolkit';
 import { getUser, getUsers } from '../thunk/usersThunk';
 
-interface IUsers {
+interface IUsersState {
   loggedUser: IUser | null;
   allUsers: IUser[] | null;
   currentUser: IUser | null;
   isLoaderOn: boolean;
-  error: string | null;
+  error: string | null | undefined;
   isRedirected: boolean;
 }
 
-const initialState: IUsers = {
+const initialState: IUsersState = {
   loggedUser: null,
   allUsers: null,
   currentUser: null,
@@ -57,9 +57,9 @@ const usersSlice = createSlice({
         state.error = null;
       })
       .addCase(getUser.rejected, (state, action) => {
-        state.error = action.payload;
         state.isRedirected = true;
         state.isLoaderOn = false;
+        state.error = action.payload;
       });
   },
 });

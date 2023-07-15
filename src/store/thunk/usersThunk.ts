@@ -1,30 +1,30 @@
 import { userService } from '@/services/userService';
+import { IUser } from '@/types/user';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const getUsers = createAsyncThunk(
+type RejectWithValue = { rejectValue: string };
+
+export const getUsers = createAsyncThunk<IUser[], void, RejectWithValue>(
   'users/getUsers',
-  async function (_, { rejectWithValue }) {
+  async (_, { rejectWithValue }) => {
     try {
       const response = await userService.getUsers();
-
       return response.data.data;
-    } catch (error: any) {
+    } catch (error) {
       console.log(error);
-
-      return rejectWithValue(error.message);
+      return rejectWithValue((error as Error).message);
     }
-  },
+  }
 );
 
-export const getUser = createAsyncThunk(
+export const getUser = createAsyncThunk<IUser, string, RejectWithValue>(
   'users/getUser',
-  async function (id: string, { rejectWithValue }) {
+  async (id, { rejectWithValue }) => {
     try {
       return await userService.getUser(id);
-    } catch (error: any) {
+    } catch (error) {
       console.log(error);
-
-      return rejectWithValue(error.message);
+      return rejectWithValue((error as Error).message);
     }
-  },
+  }
 );
