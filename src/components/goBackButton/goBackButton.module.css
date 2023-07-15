@@ -14,7 +14,7 @@
     font-size: 0;
     padding: 0;
     border: none;
-    background-image: url('arrowLeft.svg');
+    background-image: url('/arrowLeft.svg');
     background-repeat: no-repeat;
   }
 }

@@ -42,4 +42,8 @@
   .userCardsList {
     padding: 16px;
   }
+
+  .usersDescription {
+    font-size: 16px;
+  }
 }

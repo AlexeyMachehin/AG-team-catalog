@@ -128,4 +128,14 @@ h3 {
   .generalHeader {
     padding: 16px 16px 64px 16px;
   }
+
+  h1 {
+    font-size: 36px;
+    color: #fff;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #fff;
+  }
 }
