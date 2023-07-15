@@ -14,7 +14,7 @@
     font-size: 0;
     padding: 0;
     border: none;
-    background-image: url('exitIconButton.svg');
+    background-image: url('/exitIconButton.svg');
     background-repeat: no-repeat;
   }
 }

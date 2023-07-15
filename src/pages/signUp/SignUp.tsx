@@ -87,13 +87,13 @@ export function SignUp() {
               <img
                 className="icon"
                 alt="eyeOpened"
-                src="eyeOpened.png"
+                src="/eyeOpened.png"
               />
             ) : (
               <img
                 className="icon"
                 alt="eyeClosed"
-                src="eyeClosed.svg"
+                src="/eyeClosed.svg"
               />
             )}
           </span>
@@ -122,13 +122,13 @@ export function SignUp() {
               <img
                 className="icon"
                 alt="eyeOpened"
-                src="eyeOpened.png"
+                src="/eyeOpened.png"
               />
             ) : (
               <img
                 className="icon"
                 alt="eyeClosed"
-                src="eyeClosed.svg"
+                src="/eyeClosed.svg"
               />
             )}
           </span>
