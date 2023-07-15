@@ -2,7 +2,6 @@ import { AxiosService} from './AxiosService';
 import { ISignupRequestDto } from '../types/api/ISignupRequestDto';
 import { ILoginRequestDto } from '../types/api/ILoginRequestDto';
 import { ApiEndpoint } from '../types/api/ApiEndpoint';
-import { UserDto } from '../store/user/userDto';
 
 class AuthService extends AxiosService {
   public constructor() {
@@ -27,8 +26,8 @@ class AuthService extends AxiosService {
     return this.post(ApiEndpoint.LOGOUT);
   }
 
-  public getUser(): Promise<UserDto> {
-    return this.get<UserDto>(ApiEndpoint.GET_USER);
+  public getUser(): Promise<any> {
+    return this.get<any>(ApiEndpoint.GET_USER);
   }
 }
 
