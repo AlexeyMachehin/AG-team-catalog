@@ -12,7 +12,6 @@ class AuthService extends AxiosService {
   public signup(dto: ISignupRequestDto): Promise<any> {
     return this.post(`${this.baseUrl}${ApiEndpoint.SIGN_UP}`, dto).catch(
       error => {
-        debugger
         throw error;
       },
     );
