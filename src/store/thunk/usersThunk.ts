@@ -1,3 +1,4 @@
+import { ISignupRequestDto } from './../../types/api/ISignupRequestDto';
 import { authService } from '@/services/AuthService';
 import { userService } from '@/services/userService';
 import { IUser } from '@/types/user';
@@ -30,7 +31,7 @@ export const getUser = createAsyncThunk<IUser, string, RejectWithValue>(
   },
 );
 
-export const signup = createAsyncThunk(
+export const signup = createAsyncThunk<void, ISignupRequestDto, RejectWithValue>(
   'users/signup',
   async (userData, { rejectWithValue }) => {
     try {
