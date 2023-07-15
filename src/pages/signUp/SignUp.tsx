@@ -1,39 +1,44 @@
-import { useState } from 'react';
-import classes from './signUp.module.css';
-import { NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useSignupFormik } from './hooks/useSignupFormik';
+import { useNavigate } from 'react-router-dom';
 import { RoutePaths } from '@/consts/routes';
+import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks';
+import { signup } from '@/store/thunk/usersThunk';
+import { selectorIsLogged } from '@/store/selectors/usersSelectors';
+import { setIsLogged } from '@/store/slices/usersSlice';
 
 export function SignUp() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-  });
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const isLogged = useAppSelector(selectorIsLogged);
 
   const [showPassword, setShowPassword] = useState(false);
-
-  const handleChange = (e: any) => {
-    const { name, value } = e.target;
-    setFormData(prevData => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
 
   const togglePasswordVisibility = () => {
     setShowPassword(prevShowPassword => !prevShowPassword);
   };
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    // Добавьте здесь код для обработки отправки формы
-    console.log(formData);
+  const handleSubmit = async (values: any) => {
+    dispatch(
+      signup({
+        email: values.email,
+        password: values.password,
+      }),
+    );
   };
+
+  useEffect(() => {
+    if (isLogged) {
+      navigate(RoutePaths.INDEX);
+      dispatch(setIsLogged(false));
+    }
+  }, [isLogged]);
+
+  const formik = useSignupFormik({ onSubmit: handleSubmit });
 
   return (
     <div className="signUpWrapper">
-      <form className="signUpForm" onSubmit={handleSubmit}>
+      <form className="signUpForm" onSubmit={formik.handleSubmit}>
         <h3>Регистрация</h3>
 
         <div>
@@ -42,13 +47,14 @@ export function SignUp() {
           <input
             className="generalInput"
             type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
+            name="firstName"
+            value={formik.values.firstName}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
-
-          <div className="inputErrorText">Ошибка</div>
+          {formik.touched.firstName && Boolean(formik.errors.firstName) ? (
+            <div className="inputErrorText">{formik.errors.firstName}</div>
+          ) : null}
         </div>
 
         <div>
@@ -58,12 +64,15 @@ export function SignUp() {
             className="generalInput"
             type="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
             required
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
 
-          <div className="inputErrorText">Ошибка</div>
+          {formik.touched.email && formik.errors.email ? (
+            <div className="inputErrorText">{formik.errors.email}</div>
+          ) : null}
         </div>
 
         <div>
@@ -73,9 +82,10 @@ export function SignUp() {
             className="generalInput"
             type={showPassword ? 'text' : 'password'}
             name="password"
-            value={formData.password}
-            onChange={handleChange}
             required
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
 
           <span
@@ -84,21 +94,15 @@ export function SignUp() {
             tabIndex={0}
             onClick={togglePasswordVisibility}>
             {showPassword ? (
-              <img
-                className="icon"
-                alt="eyeOpened"
-                src="/eyeOpened.png"
-              />
+              <img className="icon" alt="eyeOpened" src="/eyeOpened.png" />
             ) : (
-              <img
-                className="icon"
-                alt="eyeClosed"
-                src="/eyeClosed.svg"
-              />
+              <img className="icon" alt="eyeClosed" src="/eyeClosed.svg" />
             )}
           </span>
 
-          <div className="inputErrorText">Ошибка</div>
+          {formik.touched.password && Boolean(formik.errors.password) ? (
+            <div className="inputErrorText">{formik.errors.password}</div>
+          ) : null}
         </div>
 
         <div>
@@ -107,10 +111,11 @@ export function SignUp() {
           <input
             className="generalInput"
             type={showPassword ? 'text' : 'password'}
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
+            name="passwordAgain"
             required
+            value={formik.values.passwordAgain}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
 
           <span
@@ -119,30 +124,21 @@ export function SignUp() {
             tabIndex={0}
             onClick={togglePasswordVisibility}>
             {showPassword ? (
-              <img
-                className="icon"
-                alt="eyeOpened"
-                src="/eyeOpened.png"
-              />
+              <img className="icon" alt="eyeOpened" src="/eyeOpened.png" />
             ) : (
-              <img
-                className="icon"
-                alt="eyeClosed"
-                src="/eyeClosed.svg"
-              />
+              <img className="icon" alt="eyeClosed" src="/eyeClosed.svg" />
             )}
           </span>
 
-          <div className="inputErrorText">Ошибка</div>
+          {formik.touched.passwordAgain &&
+          Boolean(formik.errors.passwordAgain) ? (
+            <div className="inputErrorText">{formik.errors.passwordAgain}</div>
+          ) : null}
         </div>
 
         <button className="loginButton" type="submit">
           Зарегистрироваться
         </button>
-
-        <NavLink className="loginLink" to={RoutePaths.SIGNIN}>
-          Вход
-        </NavLink>
       </form>
     </div>
   );

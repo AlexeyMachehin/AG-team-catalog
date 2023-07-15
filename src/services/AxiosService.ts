@@ -12,7 +12,10 @@ export abstract class AxiosService {
 
   protected constructor() {
     this.axios.interceptors.response.use(undefined, error => {
-      return Promise.reject(error);
+      if(error.response?.data.message) {
+        throw new Error(error.response.data.message);
+      }
+      throw new Error(error.message);
     });
   }
 
