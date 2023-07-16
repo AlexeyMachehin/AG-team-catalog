@@ -32,7 +32,7 @@ export const getUser = createAsyncThunk<IUser, string, RejectWithValue>(
 );
 
 export const signup = createAsyncThunk<
-  void,
+  string,
   ISignupRequestDto,
   RejectWithValue
 >('users/signup', async (userData, { rejectWithValue }) => {
