@@ -10,7 +10,12 @@ class AuthTokenUtils {
   }
 
   public setToken(token: string): void {
-    document.cookie = `${this.TOKEN_KEY}=${token}; path=/;`;
+    const expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate() + 5);
+
+    document.cookie = `${
+      this.TOKEN_KEY
+    }=${token}; expires=${expirationDate.toUTCString()}; path=/;`;
   }
 
   public removeToken(): void {

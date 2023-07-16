@@ -1,6 +1,6 @@
 import { AxiosService } from './AxiosService';
-import { ISignupRequestDto } from '../types/api/ISignupRequestDto';
-import { ApiEndpoint } from '../types/api/ApiEndpoint';
+import { ApiEndpoint } from '../types/ApiEndpoint';
+import { ISignupRequestDto } from '@/types/ISignupRequestDto';
 
 class AuthService extends AxiosService {
   baseUrl = 'https://fake-api-jwt-json-server.onrender.com/auth';

@@ -1,12 +1,20 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { RootState } from '../store';
+import { usersAdapter } from '../slices/usersSlice';
 
 const select = (state: RootState) => state;
 
+export const selectorUsersAdapter = usersAdapter.getSelectors();
+
 export const selectorAllUsers = createSelector(
-  [select],
-  state => state.usersReducer.allUsers,
+  (state: RootState) => state.usersReducer,
+  selectorUsersAdapter.selectAll,
 );
+
+// export const selectorAllUsers = createSelector(
+//   [select],
+//   state => state.usersReducer.allUsers,
+// );
 
 export const selectorLoader = createSelector(
   [select],
@@ -31,4 +39,14 @@ export const selectorIsRedirected = createSelector(
 export const selectorIsLogged = createSelector(
   [select],
   state => state.usersReducer.isLogged,
+);
+
+export const selectorCountPages = createSelector(
+  [select],
+  state => state.usersReducer.countPages,
+);
+
+export const selectorCurrentPage = createSelector(
+  [select],
+  state => state.usersReducer.currentPage,
 );
