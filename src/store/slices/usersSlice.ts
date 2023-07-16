@@ -1,6 +1,7 @@
 import { IUser } from '@/types/user';
 import { createSlice } from '@reduxjs/toolkit';
 import { getUser, getUsers, signup } from '../thunk/usersThunk';
+import { authTokenUtils } from '@/utils/authTokenUtils';
 
 interface IUsersState {
   isLogged: boolean;
@@ -65,7 +66,8 @@ const usersSlice = createSlice({
         state.error = action.payload;
       })
 
-      .addCase(signup.fulfilled, state => {
+      .addCase(signup.fulfilled, (state, action) => {
+        authTokenUtils.setToken(action.payload);
         state.isLogged = true;
         state.isLoaderOn = false;
       })
@@ -81,6 +83,7 @@ const usersSlice = createSlice({
   },
 });
 
-export const { removeError, setError, setIsRedirected, setIsLogged } = usersSlice.actions;
+export const { removeError, setError, setIsRedirected, setIsLogged } =
+  usersSlice.actions;
 
 export default usersSlice.reducer;
