@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router-dom';
+import { RoutePaths } from '@/consts/routes';
 import classes from './goBackButton.module.css';
 
 export function GoBackButton() {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
-    navigate(-1);
+    navigate(RoutePaths.INDEX);
   };
 
   return (

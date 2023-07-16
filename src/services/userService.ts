@@ -8,8 +8,9 @@ class UserService extends AxiosService {
     super();
   }
 
-  public async getUsers<T>() {
-    const response = await this.get<any>(this.baseUrl);
+  public async getUsers<T>(page?: number) {
+    const params = { page, per_page: 8 };
+    const response = await this.get<any>(this.baseUrl, { params });
     return response;
   }
 
