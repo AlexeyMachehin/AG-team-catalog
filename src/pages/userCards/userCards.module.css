@@ -1,0 +1,56 @@
+.userCardsWrapper {
+  height: 100%;
+}
+
+.exitButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.usersDescription {
+  max-width: 846px;
+  text-align: center;
+  font-size: 20px;
+  color: #f8f8f8;
+}
+
+.userCardsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 48px 80px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 32px;
+}
+
+.showMoreButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--black, #151317);
+  background-color: transparent;
+}
+
+@media screen and (max-width: 768px) {
+  .userCardsList {
+    padding: 16px;
+  }
+
+  .usersDescription {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 806px) {
+  .userCardsList {
+    flex-direction: column;
+    align-items: center;
+  }
+}

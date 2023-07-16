@@ -1,0 +1,93 @@
+.userInfoWrapper {
+  height: 100%;
+}
+
+.headerButtonsContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.userInfoHeader {
+  flex-direction: row !important;
+  align-items: initial !important;
+}
+
+.avatar {
+  width: 187px;
+  height: 187px;
+  border-radius: 100px;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 32px;
+  margin: 0 29px;
+}
+
+.generalHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px 80px 64px 80px;
+  gap: 16px;
+  background-color: #512689;
+}
+
+.headerContent__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.headerContent__text * {
+  text-align: left;
+}
+
+.userInfo {
+  display: flex;
+  justify-content: center;
+  padding: 49px;
+}
+
+.userInfo__text {
+  max-width: 630px;
+  margin-right: 129px;
+}
+
+.userInfo__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .headerContent {
+    flex-direction: column-reverse;
+    margin-top: 50px;
+  }
+
+  .headerContent__text * {
+    width: 100%;
+    text-align: center;
+  }
+
+  .userInfo {
+    flex-direction: column-reverse;
+    padding: 16px;
+  }
+
+  .userInfo__contacts {
+    margin-bottom: 32px;
+  }
+}
