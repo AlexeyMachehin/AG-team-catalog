@@ -1,5 +1,5 @@
 import { AxiosService } from './AxiosService';
-import { ApiEndpoint } from '../types/ApiEndpoint';
+import { ApiEndpoint } from '../consts/ApiEndpoint';
 import { ISignupRequestDto } from '@/types/ISignupRequestDto';
 
 class AuthService extends AxiosService {
@@ -9,12 +9,15 @@ class AuthService extends AxiosService {
     super();
   }
 
-  public signup(dto: ISignupRequestDto): Promise<any> {
-    return this.post(`${this.baseUrl}${ApiEndpoint.SIGN_UP}`, dto).catch(
-      error => {
+  public signup(dto: ISignupRequestDto): Promise<string> {
+    return this.post<ISignupRequestDto, { access_token: string }>(
+      `${this.baseUrl}${ApiEndpoint.SIGN_UP}`,
+      dto,
+    )
+      .then(data => data.access_token)
+      .catch(error => {
         throw error;
-      },
-    );
+      });
   }
 }
 

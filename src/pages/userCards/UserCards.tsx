@@ -1,13 +1,13 @@
+import { useEffect } from 'react';
+import { useAppSelector, useAppDispatch } from '@/hooks/reduxHooks';
 import { UserCard } from '@/components/userCard/UserCard';
 import { ExitButton } from '@/components/exitButton/ExitButton';
-import { useAppSelector, useAppDispatch } from '@/hooks/reduxHooks';
 import {
   selectorAllUsers,
   selectorCountPages,
   selectorCurrentPage,
 } from '@/store/selectors/usersSelectors';
 import { getUsers } from '@/store/thunk/usersThunk';
-import { useEffect } from 'react';
 import { setCurrentPage } from '@/store/slices/usersSlice';
 import classes from './userCards.module.css';
 

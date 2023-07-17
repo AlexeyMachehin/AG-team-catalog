@@ -11,11 +11,6 @@ export const selectorAllUsers = createSelector(
   selectorUsersAdapter.selectAll,
 );
 
-// export const selectorAllUsers = createSelector(
-//   [select],
-//   state => state.usersReducer.allUsers,
-// );
-
 export const selectorLoader = createSelector(
   [select],
   state => state.usersReducer.isLoaderOn,
