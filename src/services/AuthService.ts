@@ -3,7 +3,7 @@ import { ApiEndpoint } from '../consts/ApiEndpoint';
 import { ISignupRequestDto } from '@/types/ISignupRequestDto';
 
 class AuthService extends AxiosService {
-  baseUrl = 'https://fake-api-jwt-json-server.onrender.com/auth';
+  baseUrl = process.env.REGISTRATION_SERVER_PATH;
 
   public constructor() {
     super();
