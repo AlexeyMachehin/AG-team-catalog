@@ -25,10 +25,6 @@ export function UserCards() {
     dispatch(getUsers(currentPage));
   }, [currentPage]);
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
-
   return (
     <div className={classes.userCardsWrapper}>
       <header className={classes.header}>
