@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '@/hooks/reduxHooks';
-import { UserCard } from '@/components/userCard/UserCard';
+import { MemoizedUserCard } from '@/components/userCard/UserCard';
 import { ExitButton } from '@/components/exitButton/ExitButton';
 import {
   selectorAllUsers,
@@ -42,8 +42,8 @@ export function UserCards() {
       </header>
 
       <main className={classes.userCardsList}>
-        {allUsers ? (
-          allUsers.map(user => <UserCard user={user} key={user.id} />)
+        {allUsers.length ? (
+          allUsers.map(user => <MemoizedUserCard user={user} key={user.id} />)
         ) : (
           <div>no users</div>
         )}
