@@ -7,7 +7,7 @@ import { signup } from '@/store/thunk/usersThunk';
 import { selectorIsLogged } from '@/store/selectors/usersSelectors';
 import { setIsLogged } from '@/store/slices/usersSlice';
 import { ISignupRequestDto } from '@/types/ISignupRequestDto';
-import classes from './signup.module.css';
+import classes from './signUp.module.css';
 
 export function SignUp() {
   const navigate = useNavigate();
