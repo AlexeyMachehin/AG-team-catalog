@@ -8,9 +8,19 @@
   width: 100%;
 }
 
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 80px 64px;
+  gap: 16px;
+  background-color: var(--header);
+}
+
 .userInfoHeader {
-  flex-direction: row !important;
-  align-items: initial !important;
+  flex-direction: row;
+  align-items: initial;
 }
 
 .avatar {
@@ -25,16 +35,6 @@
   width: 100%;
   gap: 32px;
   margin: 0 29px;
-}
-
-.generalHeader {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 32px 80px 64px;
-  gap: 16px;
-  background-color: var(--header);
 }
 
 .headerContent__text {
