@@ -7,8 +7,8 @@ import { IUser } from '@/types/user';
 type RejectWithValue = { rejectValue: string };
 
 export interface IUsersResponse {
-  data: IUser[];
-  total_pages: number;
+  readonly data: IUser[];
+  readonly total_pages: number;
 }
 
 export const getUsers = createAsyncThunk<

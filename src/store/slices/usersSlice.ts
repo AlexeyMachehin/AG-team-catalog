@@ -4,14 +4,14 @@ import { getUser, getUsers, signup } from '../thunk/usersThunk';
 import { authTokenUtils } from '@/utils/authTokenUtils';
 
 interface IUsersState {
-  isLogged: boolean;
-  allUsers: IUser[];
-  currentUser: IUser | null;
-  isLoaderOn: boolean;
-  error: string | null | undefined;
-  isRedirected: boolean;
-  countPages: number | null;
-  currentPage: number;
+  readonly isLogged: boolean;
+  readonly allUsers: readonly IUser[];
+  readonly currentUser: IUser | null;
+  readonly isLoaderOn: boolean;
+  readonly error: string | null | undefined;
+  readonly isRedirected: boolean;
+  readonly  countPages: number | null;
+  readonly currentPage: number;
 }
 
 const initialState: IUsersState = {

@@ -21,6 +21,8 @@ export function UserInfo() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // window.scrollTo(0, 0);
+
     if (idParam) {
       dispatch(getUser(idParam));
     }
@@ -35,7 +37,7 @@ export function UserInfo() {
 
   return (
     <div className={classes.userInfoWrapper}>
-      <header className={`generalHeader ${classes.userInfoHeader}`}>
+      <header className={`${classes.header} ${classes.userInfoHeader}`}>
         <GoBackButton />
 
         <div className={classes.headerContent}>

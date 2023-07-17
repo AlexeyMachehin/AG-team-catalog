@@ -31,6 +31,7 @@ h6 {
 h1 {
   font-size: 64px;
   color: var(--font-4);
+  text-align: center;
 }
 
 h2 {
@@ -58,16 +59,6 @@ h3 {
   position: absolute;
   left: -32px;
   top: 0;
-}
-
-.generalHeader {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 32px 80px 64px;
-  gap: 16px;
-  background-color: var(--header);
 }
 
 @media screen and (width <= 768px) {
