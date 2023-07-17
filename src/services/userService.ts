@@ -1,5 +1,6 @@
 import { IUser } from '@/types/user';
 import { AxiosService } from './AxiosService';
+import { IUsersResponse } from '@/store/thunk/usersThunk';
 
 class UserService extends AxiosService {
   baseUrl = '/users';
@@ -8,10 +9,10 @@ class UserService extends AxiosService {
     super();
   }
 
-  public async getUsers<T>(page?: number) {
+  public async getUsers(page?: number): Promise<IUsersResponse> {
     const params = { page, per_page: 8 };
-    const response = await this.get<any>(this.baseUrl, { params });
-    return response;
+    const response = await this.get<IUsersResponse>(this.baseUrl, { params });
+    return response.data;
   }
 
   public async getUser(id: string): Promise<IUser> {

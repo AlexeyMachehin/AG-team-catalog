@@ -1,15 +1,16 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks';
+import { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { setIsRedirected } from '@/store/slices/usersSlice';
+import { getUser } from '@/store/thunk/usersThunk';
 import {
   selectorCurrentUser,
   selectorIsRedirected,
 } from '@/store/selectors/usersSelectors';
 import { ExitButton } from '@/components/exitButton/ExitButton';
 import { GoBackButton } from '@/components/goBackButton/GoBackButton';
-import { useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { getUser } from '@/store/thunk/usersThunk';
 import { RoutePaths } from '@/consts/routes';
-import { setIsRedirected } from '@/store/slices/usersSlice';
 import classes from './userInfo.module.css';
 
 export function UserInfo() {

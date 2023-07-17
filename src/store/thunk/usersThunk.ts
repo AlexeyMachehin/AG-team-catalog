@@ -1,12 +1,12 @@
 import { authService } from '@/services/AuthService';
 import { userService } from '@/services/userService';
 import { ISignupRequestDto } from '@/types/ISignupRequestDto';
-import { IUser } from '@/types/user';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { IUser } from '@/types/user';
 
 type RejectWithValue = { rejectValue: string };
 
-interface IUsersResponse {
+export interface IUsersResponse {
   data: IUser[];
   total_pages: number;
 }
@@ -18,7 +18,7 @@ export const getUsers = createAsyncThunk<
 >('users/getUsers', async (params, { rejectWithValue }) => {
   try {
     const response = await userService.getUsers(params);
-    return response.data;
+    return response;
   } catch (error) {
     console.log(error);
     return rejectWithValue((error as Error).message);
@@ -43,8 +43,7 @@ export const signup = createAsyncThunk<
   RejectWithValue
 >('users/signup', async (userData, { rejectWithValue }) => {
   try {
-    const response = await authService.signup(userData);
-    return response.data.access_token;
+    return await authService.signup(userData);
   } catch (error) {
     console.log(error);
     return rejectWithValue((error as Error).message);

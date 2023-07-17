@@ -1,5 +1,27 @@
 :root {
+  /* common */
+  --error: #ff6161;
+  --button-background: transparent;
+  --button-border: 1px solid var(--black, #151317);
+  --header: #512689;
+  --form-border: 0px 4px 20px 0px #00000014;
+
+  /* fonts */
   --font-1: #151317;
   --font-2: #808185;
   --font-3: #f8f8f8;
+  --font-4: #fff;
+
+  /* loader */
+  --loader-background: #a882ee;
+  --loader-border: 5px solid #f3f3f3;
+  --loader: #3498db;
+
+  /* user card */
+  --user-card-shadow: 0px 0.996px 3.9842 0px #33333326;
+  --avatar-background: lightgray;
+
+  /* input */
+  --input-shadow: 0px 4px 4px 0px #00000040;
+  --input-error-border: 1px solid var(--error);
 }

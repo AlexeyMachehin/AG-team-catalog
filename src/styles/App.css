@@ -30,76 +30,28 @@ h6 {
 
 h1 {
   font-size: 64px;
-  color: #fff;
+  color: var(--font-4);
 }
 
 h2 {
   font-size: 32px;
-  color: #fff;
+  color: var(--font-4);
 }
 
 h3 {
   font-size: 20px;
 }
 
-.generalInput {
-  height: 48px;
-  width: 100%;
-  padding: 12px 8px 12px 16px;
-  border-radius: 8px;
-  background: #f8f8f8;
-  color: var(--font-2);
-  font-size: 14px;
-}
-
-.generalInput:focus {
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-
-.generalInputName {
-  margin-bottom: 8px;
-}
-
 .inputErrorBorder {
-  border: 1px solid #ff6161;
+  border: var(--input-error-border);
 }
 
 .loginButton {
   height: 48px;
   padding: 8px 12px;
   border-radius: 8px;
-  background: #512689;
-  color: #fff;
-}
-
-.inputErrorText {
-  margin-top: 4px;
-  font-size: 10px;
-  color: #ff6161;
-}
-
-.signUpForm {
-  display: flex;
-  width: 500px;
-  padding: 16px;
-  flex-direction: column;
-  justify-content: center;
-  gap: 16px;
-  border-radius: 16px;
-  background: #fff;
-  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.08);
-}
-
-.signUpWrapper {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.iconButton {
-  position: relative;
-  cursor: pointer;
+  background: var(--header);
+  color: var(--font-3);
 }
 
 .icon {
@@ -108,36 +60,26 @@ h3 {
   top: 0;
 }
 
-.loginLink {
-  display: flex;
-  justify-content: center;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  color: #512689;
-}
-
 .generalHeader {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 32px 80px 64px 80px;
+  padding: 32px 80px 64px;
   gap: 16px;
-  background-color: #512689;
+  background-color: var(--header);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (width <= 768px) {
   .generalHeader {
-    padding: 16px 16px 64px 16px;
+    padding: 16px 16px 64px;
   }
 
   h1 {
     font-size: 36px;
-    color: #fff;
   }
 
   h2 {
     font-size: 20px;
-    color: #fff;
   }
 }

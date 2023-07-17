@@ -3,4 +3,3 @@ export enum RoutePaths {
   SIGNUP = '/signup',
   USER_INFO = '/user-info',
 }
- 
