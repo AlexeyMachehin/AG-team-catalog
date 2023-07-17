@@ -2,10 +2,10 @@ import * as yup from 'yup';
 import { useFormik } from 'formik';
 
 export interface IFormValue {
-  firstName: string;
-  email: string;
-  password: string;
-  passwordAgain: string;
+  readonly firstName: string;
+  readonly email: string;
+  readonly password: string;
+  readonly passwordAgain: string;
 }
 
 interface IParams {
