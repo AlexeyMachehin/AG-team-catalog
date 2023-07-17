@@ -46,9 +46,17 @@ export function SignUp() {
   };
 
   const error = (value: keyof IFormValue): JSX.Element | null => {
-    return Boolean(formik.touched[value]) && Boolean(formik.errors[value]) ? (
+    return formik.touched[value] && formik.errors[value] ? (
       <div className={classes.inputErrorText}>{formik.errors[value]}</div>
     ) : null;
+  };
+
+  const eyeIconShow = () => {
+    return showPassword ? (
+      <img className="icon" alt="eyeOpened" src="/eyeOpened.png" />
+    ) : (
+      <img className="icon" alt="eyeClosed" src="/eyeClosed.svg" />
+    );
   };
 
   return (
@@ -78,7 +86,6 @@ export function SignUp() {
             className={setInputClass('email')}
             type="email"
             name="email"
-            required
             value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -94,7 +101,6 @@ export function SignUp() {
             className={setInputClass('password')}
             type={showPassword ? 'text' : 'password'}
             name="password"
-            required
             value={formik.values.password}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -105,11 +111,7 @@ export function SignUp() {
             role="button"
             tabIndex={0}
             onClick={togglePasswordVisibility}>
-            {showPassword ? (
-              <img className="icon" alt="eyeOpened" src="/eyeOpened.png" />
-            ) : (
-              <img className="icon" alt="eyeClosed" src="/eyeClosed.svg" />
-            )}
+            {eyeIconShow()}
           </span>
 
           {error('password')}
@@ -122,7 +124,6 @@ export function SignUp() {
             className={setInputClass('passwordAgain')}
             type={showPassword ? 'text' : 'password'}
             name="passwordAgain"
-            required
             value={formik.values.passwordAgain}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -133,11 +134,7 @@ export function SignUp() {
             role="button"
             tabIndex={0}
             onClick={togglePasswordVisibility}>
-            {showPassword ? (
-              <img className="icon" alt="eyeOpened" src="/eyeOpened.png" />
-            ) : (
-              <img className="icon" alt="eyeClosed" src="/eyeClosed.svg" />
-            )}
+            {eyeIconShow()}
           </span>
 
           {error('passwordAgain')}
