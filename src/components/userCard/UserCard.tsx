@@ -38,6 +38,7 @@ export function UserCard({ user }: { user: IUser }) {
 
       <div className={classes.likesWrapper}>
         <button
+          className={classes.likeIcon}
           onClick={e => {
             e.stopPropagation();
             handler();

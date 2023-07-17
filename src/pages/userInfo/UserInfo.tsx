@@ -21,8 +21,6 @@ export function UserInfo() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // window.scrollTo(0, 0);
-
     if (idParam) {
       dispatch(getUser(idParam));
     }
