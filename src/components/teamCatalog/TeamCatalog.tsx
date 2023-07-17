@@ -1,10 +1,10 @@
-import { RoutePaths } from '@/consts/routes';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { SignUp } from '@/pages/signUp/SignUp';
 import { UserCards } from '@/pages/userCards/UserCards';
 import { UserInfo } from '@/pages/userInfo/UserInfo';
-import { Navigate, Route, Routes } from 'react-router-dom';
 import UnAuthGuard from '../unAuthGuard/UnAuthGuard';
 import AuthGuard from '../authGuard/AuthGuard';
+import { RoutePaths } from '@/consts/routes';
 
 export function TeamCatalog() {
   return (

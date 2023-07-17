@@ -2,12 +2,12 @@
   height: fit-content;
   padding: 8px 16px;
   border-radius: 8px;
-  border: 1px solid #f8f8f8;
-  background-color: transparent;
+  border: 1px solid var(--font-3);
+  background-color: var(--button-background);
   color: var(--font-3);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (width <= 768px) {
   .exitButton {
     min-width: 40px;
     min-height: 40px;

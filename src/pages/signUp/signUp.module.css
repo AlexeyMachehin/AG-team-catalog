@@ -1,1 +1,50 @@
+.signUpForm {
+  display: flex;
+  width: 500px;
+  padding: 16px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  border-radius: 16px;
+  box-shadow: var(--form-border);
+}
 
+.signUpWrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.generalInputName {
+  margin-bottom: 8px;
+}
+
+.generalInput {
+  height: 48px;
+  width: 100%;
+  padding: 12px 8px 12px 16px;
+  border-radius: 8px;
+  background-color: var(--font-3);
+  color: var(--font-2);
+  font-size: 14px;
+}
+
+.generalInputError {
+  border: var(--input-error-border);
+}
+
+.generalInput:focus {
+  box-shadow: var(--input-shadow);
+}
+
+.iconButton {
+  position: relative;
+  cursor: pointer;
+}
+
+.inputErrorText {
+  margin-top: 4px;
+  font-size: 10px;
+  color: var(--error);
+}

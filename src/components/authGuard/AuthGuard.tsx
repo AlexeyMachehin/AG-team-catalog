@@ -1,6 +1,6 @@
-import { createPath, Navigate, Outlet, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks';
+import { createPath, Navigate, Outlet, useLocation } from 'react-router-dom';
 import { selectorIsLogged } from '@/store/selectors/usersSelectors';
 import { setIsLogged } from '@/store/slices/usersSlice';
 import { authTokenUtils } from '@/utils/authTokenUtils';
