@@ -1,7 +1,7 @@
 import Axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
 const apiAxiosInstance = Axios.create({
-  baseURL: 'https://reqres.in/api',
+  baseURL: process.env.USERS_SERVER_PATH,
   headers: {
     'Referrer-Policy': 'no-referrer',
   },
