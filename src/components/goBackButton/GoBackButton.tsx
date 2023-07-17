@@ -5,12 +5,12 @@ import classes from './goBackButton.module.css';
 export function GoBackButton() {
   const navigate = useNavigate();
 
-  const handleGoBack = () => {
+  const handleClick = () => {
     navigate(RoutePaths.INDEX);
   };
 
   return (
-    <button className={classes.goBackButton} onClick={handleGoBack}>
+    <button className={classes.goBackButton} onClick={handleClick}>
       Назад
     </button>
   );

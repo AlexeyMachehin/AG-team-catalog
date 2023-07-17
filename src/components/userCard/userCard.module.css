@@ -17,6 +17,16 @@
   background-color: var(--avatar-background);
 }
 
+.noAvatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 124px;
+  height: 124px;
+  border-radius: 124px;
+  background-color: grey;
+}
+
 .likesWrapper {
   display: flex;
   justify-content: flex-end;
