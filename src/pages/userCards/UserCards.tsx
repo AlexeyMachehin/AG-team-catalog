@@ -22,10 +22,8 @@ export function UserCards() {
   };
 
   useEffect(() => {
-    if (allUsers.length === 0 ) {
-      dispatch(getUsers(currentPage));
-    }
-  }, [dispatch, allUsers.length, currentPage]);
+    dispatch(getUsers(currentPage));
+  }, [currentPage]);
 
   return (
     <div className={classes.userCardsWrapper}>
