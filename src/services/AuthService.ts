@@ -10,11 +10,11 @@ class AuthService extends AxiosService {
   }
 
   public signup(dto: ISignupRequestDto): Promise<string> {
-    return this.post<ISignupRequestDto, { access_token: string }>(
+    return this.post<ISignupRequestDto, { data: { access_token: string } }>(
       `${this.baseUrl}${ApiEndpoint.SIGN_UP}`,
       dto,
     )
-      .then(data => data.access_token)
+      .then(data => data.data.access_token)
       .catch(error => {
         throw error;
       });

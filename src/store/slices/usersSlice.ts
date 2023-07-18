@@ -10,7 +10,7 @@ interface IUsersState {
   readonly isLoaderOn: boolean;
   readonly error: string | null | undefined;
   readonly isRedirected: boolean;
-  readonly  countPages: number | null;
+  readonly countPages: number | null;
   readonly currentPage: number;
 }
 
