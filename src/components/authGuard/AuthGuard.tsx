@@ -15,7 +15,7 @@ export default function AuthGuard() {
     dispatch(setIsLogged(token));
   }, [isLogged]);
 
-  if (isLogged || token) {
+  if (isLogged && token) {
     return <Outlet />;
   }
 

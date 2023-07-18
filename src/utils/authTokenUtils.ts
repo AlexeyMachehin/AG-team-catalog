@@ -6,6 +6,7 @@ class AuthTokenUtils {
       .split('; ')
       .find(row => row.startsWith(this.TOKEN_KEY))
       ?.split('=')[1];
+
     return token || null;
   }
 
