@@ -11,7 +11,7 @@ import { getUsers } from '@/store/thunk/usersThunk';
 import { setCurrentPage } from '@/store/slices/usersSlice';
 import classes from './userCards.module.css';
 
-export function UserCards() {
+export default function UserCards() {
   const allUsers = useAppSelector(selectorAllUsers);
   const countPages = useAppSelector(selectorCountPages);
   const currentPage = useAppSelector(selectorCurrentPage);

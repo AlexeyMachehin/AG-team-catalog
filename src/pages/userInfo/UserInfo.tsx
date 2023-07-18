@@ -13,7 +13,7 @@ import { GoBackButton } from '@/components/goBackButton/GoBackButton';
 import { RoutePaths } from '@/consts/routes';
 import classes from './userInfo.module.css';
 
-export function UserInfo() {
+export default function UserInfo() {
   const currentUser = useAppSelector(selectorCurrentUser);
   const isRedirected = useAppSelector(selectorIsRedirected);
   const { idParam } = useParams();
