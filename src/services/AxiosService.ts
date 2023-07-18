@@ -4,6 +4,7 @@ const apiAxiosInstance = Axios.create({
   baseURL: process.env.USERS_SERVER_PATH,
   headers: {
     'Referrer-Policy': 'no-referrer',
+    withCredentials: true,
   },
 });
 
