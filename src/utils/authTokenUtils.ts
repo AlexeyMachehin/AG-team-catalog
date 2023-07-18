@@ -11,12 +11,14 @@ class AuthTokenUtils {
   }
 
   public setToken(token: string): void {
-    const expirationDate = new Date();
-    expirationDate.setDate(expirationDate.getDate() + 5);
+    if (token) {
+      const expirationDate = new Date();
+      expirationDate.setDate(expirationDate.getDate() + 5);
 
-    document.cookie = `${
-      this.TOKEN_KEY
-    }=${token}; expires=${expirationDate.toUTCString()}; path=/;`;
+      document.cookie = `${
+        this.TOKEN_KEY
+      }=${token}; expires=${expirationDate.toUTCString()}; path=/;`;
+    }
   }
 
   public removeToken(): void {
@@ -25,6 +27,7 @@ class AuthTokenUtils {
 
   public isAuthenticated(): boolean {
     const token = this.getToken();
+
     return !!token;
   }
 }
